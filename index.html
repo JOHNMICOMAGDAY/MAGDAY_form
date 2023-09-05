@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAGDAY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <h1 class="heading">USER DETAILS FORM</h1>
+        <form class="form" id="user-form">
+            <div class="input">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" required>
+            </div>
+
+            <div class="input">
+                <label for="middlename">Middle Name:</label>
+                <input type="text" id="middlename" required>
+            </div>
+
+            <div class="input">
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" required>
+            </div>
+
+            <div class="input">
+                <label for="birthday">Birthday (MM/DD/YYYY):</label>
+                <input type="text" id="birthday" placeholder="MM/DD/YYYY" pattern="\d{2}/\d{2}/\d{4}" required>
+            </div>
+
+            <div class="input">
+                <label for="address">Address:</label>
+                <input type="text" id="address" required>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn" type="submit">Submit</button>
+                <button class="btn" type="button" id="clear-button">Clear</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("user-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const firstname = document.getElementById("firstname").value;
+            const middlename = document.getElementById("middlename").value;
+            const lastname = document.getElementById("lastname").value;
+            const birthday = document.getElementById("birthday").value;
+            const address = document.getElementById("address").value;
+
+            alert(`User Details:
+            First Name: ${firstname}
+            Middle Name: ${middlename}
+            Last Name: ${lastname}
+            Birthday: ${birthday}
+            Address: ${address}`);
+        });
+
+        document.getElementById("clear-button").addEventListener("click", function () {
+            const form = document.getElementById("user-form");
+            form.reset();
+        });
+    </script>
+</body>
+</html>
